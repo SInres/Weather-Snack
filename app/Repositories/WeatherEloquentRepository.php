@@ -19,11 +19,12 @@ use Carbon\Carbon;
     {
         return Cache::remember('current_weather', $minutes='60', function()
         {
-            $last_synchronization = Carbon::now()->format('js \\of F Y h:i A');
+            $last_synch = Carbon::now()->format('js \\of F Y h:i A');
             $jsonfile = file_get_contents("https://api.openweathermap.org/data/2.5/weather?id=" . $this->city_id . "&appid=" . $this->api_key . "&units=" . $this->units . "");
             $jsondata_current = json_decode($jsonfile);
 
             return $jsondata_current;
+            return $last_synch;
         });  
     }
 
