@@ -30,7 +30,7 @@ class WeatherController extends Controller
         $current_weather = $this->weatherInterface->getCurrentWeather();
         $forecast_weather = $this->weatherInterface->getForecastWeather();
 
-        // dd($current_weather);
+        // dd($forecast_weather);
 
         return view('weather.index', compact('current_weather', 'forecast_weather', 'current_date'));
     }

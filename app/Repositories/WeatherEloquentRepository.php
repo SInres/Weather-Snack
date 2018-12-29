@@ -19,12 +19,11 @@ use Carbon\Carbon;
     {
         return Cache::remember('current_weather', $minutes='60', function()
         {
-            $last_synch = Carbon::now()->format('js \\of F Y h:i A');
+            $last_synch = Carbon::now()->format('h:i A');
             $jsonfile = file_get_contents("https://api.openweathermap.org/data/2.5/weather?id=" . $this->city_id . "&appid=" . $this->api_key . "&units=" . $this->units . "");
             $jsondata_current = json_decode($jsonfile);
 
-            return $jsondata_current;
-            return $last_synch;
+            return [$jsondata_current, $last_synch];
         });  
     }
 
@@ -32,7 +31,7 @@ use Carbon\Carbon;
     {
         return Cache::remember('forecast_weather', $minutes='60', function()
         {
-            $jsonfile = file_get_contents("http://api.openweathermap.org/data/2.5/forecast?id=" . $this->city_id . "&cnt=14&appid=" . $this->api_key . "&units=" . $this->units . "");
+            $jsonfile = file_get_contents("http://api.openweathermap.org/data/2.5/forecast?id=" . $this->city_id . "&cnt=22&appid=" . $this->api_key . "&units=" . $this->units . "");
             $jsondata_forecast = json_decode($jsonfile);
 
             return $jsondata_forecast;
