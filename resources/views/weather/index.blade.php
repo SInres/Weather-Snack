@@ -26,7 +26,7 @@
                                   
                                 <div class="col-md-12">
                                   <div class="text-center">
-                                        <button class="btn btn-primary" disabled>Last update today at {{$current_weather[1]}}</button>
+                                        <button class="btn btn-secondary" disabled>Last update today at {{$current_weather[1]}}</button>
                                   </div>
                                 </div>
 
