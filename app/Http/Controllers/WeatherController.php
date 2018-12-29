@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 use App\Repositories\WeatherRepositoryInterface;
 
 class WeatherController extends Controller

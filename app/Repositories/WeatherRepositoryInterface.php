@@ -6,7 +6,6 @@
  */
 interface WeatherRepositoryInterface
 {
-
     public function getCurrentWeather();
 
     public function getForecastWeather();
